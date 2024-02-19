@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import './header.css';
 
-const nav__links = [
+const navLinks = [
   {
     path: '/home',
     display: 'Home',
@@ -33,9 +33,14 @@ const Header = () => (
           {/*      menue start       */}
           <div className="navigation">
             <ul className="menu d-flex align-items-center gap-5">
-              {nav__links.map((item, index) => (
-                <li className="nav__item" key={index}>
-                  <NavLink to={item.path} className={(navClass) => (navClass.isActive ? 'active__link' : '')}>{item.display}</NavLink>
+              {navLinks.map((item, index) => (
+                <li className="nav__item" key={item.id || index}>
+                  <NavLink
+                    to={item.path}
+                    className={(navClass) => (navClass.isActive ? 'active__link' : '')}
+                  >
+                    {item.display}
+                  </NavLink>
                 </li>
               ))}
             </ul>
